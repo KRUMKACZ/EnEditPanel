@@ -14,7 +14,7 @@
 // ==UserScript==
 // @name         EEP EnEditPanel
 // @namespace    https://arena.en.cx/
-// @version      4.2.2023
+// @version      4.3.2023
 // @description  EEP - tagging panel for the game engine
 // @author       Viruss. Telegram: @Chapunka
 

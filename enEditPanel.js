@@ -1,4 +1,4 @@
-const version = 'v 4.2.2023';
+const version = 'v 4.3.2023';
 $('head').append('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" />');
 
 let url = document.URL; // Получаем адрес страницы редактирования
@@ -77,7 +77,6 @@ let bold = "<div id='boldId' type='button' class='stylebuttonico' title='Жир�
 let yellowI = "<div id='yellowId' type='button' class='stylebuttonico' title='Желтый текст курсивом'><i class='fas fa-italic'></i></div>"; // Желтый наклонный текст
 let del = "<div id='delId' type='button' class='stylebuttonico' title='Зачеркнутый текст'><i class='fas fa-strikethrough'></i></div>"; // Зачеркнутый текст
 let urlButton = "<div id='urlId' type='button' class='stylebuttonico' title='Ссылка'><i class='fas fa-sign-out-alt'></i></div>"; // Ссылка
-
 
 let center = "<div id='centerId' type='button' class='stylebuttonico' title='Выравнивание по центру'><i class='fas fa-align-center'></i></div>"; // Выравнивание по центру
 let right = "<div id='rightId' type='button' class='stylebuttonico' title='Выравнивание по правому краю'><i class='fas fa-align-right'></i></div>"; // Выравнивание по правому краю
@@ -308,7 +307,7 @@ redId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<p style=color:red;><b>ВНИМАНИЕ!</b>' + selectedText + '</p>');
+            pastText(tegValue = '<p style=color:red;><b>ВНИМАНИЕ!</b> ' + selectedText + '</p>');
         } else {
             insertAtCaret("<p style=color:red;><b>ВНИМАНИЕ!</b> ТЕКСТ </p>");
         }
@@ -367,7 +366,7 @@ foId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<span style=color: yellow;><b>ФО: </b>' + selectedText + '</span>');
+            pastText(tegValue = '<span style=color: yellow;><b>ФО:</b> ' + selectedText + '</span>');
         } else {
             insertAtCaret('<span style=color:yellow;><b>ФО:</b> ТЕКСТ </span>');
         }
@@ -379,7 +378,7 @@ exampleId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<span style=color:yellow;><b>Пример: </b>' + selectedText + '</span>');
+            pastText(tegValue = '<span style=color:yellow;><b>Пример:</b> ' + selectedText + '</span>');
         } else {
             insertAtCaret('<span style=color:yellow;><b>Пример:</b> ТЕКСТ </span>');
         }
