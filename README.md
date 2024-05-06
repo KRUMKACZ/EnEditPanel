@@ -16,7 +16,7 @@
 // @namespace    https://arena.en.cx/
 // @version      4.3.2023
 // @description  EEP - tagging panel for the game engine
-// @author       Viruss. Telegram: @Chapunka
+// @author       VIRUSS. Telegram: @free_md
 
 // @match        https://*.en.cx/Administration/Games/TaskEdit.aspx?gid=*
 // @match        https://*.en.cx/Administration/Games/TaskEdit.aspx?action=TaskEdit&gid=*
