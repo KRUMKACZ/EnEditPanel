@@ -1,4 +1,4 @@
-const version = 'v 4.3.2023';
+const version = 'v 6.5.24';
 $('head').append('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" />');
 
 let url = document.URL; // Получаем адрес страницы редактирования
@@ -485,5 +485,5 @@ qAquaId.onclick = function () {
 
 authorId.onclick = function () {
     insertAtCaret(`EEP EnEditPanel ${version} - панель редактирования заданий игрового движка Encounter.
-Предложения по улучшению и расширению функционала панели пишем @Chapunka`);
+Предложения по улучшению и расширению функционала панели пишем @free_md`);
 };
