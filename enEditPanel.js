@@ -84,8 +84,8 @@ let justify = "<div id='justifyId' type='button' class='stylebuttonico' title='�
 let detalis = "<div id='detalisId' type='button' class='stylebuttonico' title='Спойлер'><i class='fas fa-angle-double-down'></i></div>"; // Спойлер
 let quote = "<div id='quoteId' type='button' class='stylebuttonico' title='Цитирование с разделителями'><i class='fas fa-quote-left'></i></div>"; // Цитирование с разделителями
 
-let image = "<div id='imageId' type='button' class='stylebuttonico' title='Ссылка на изображение с миниатюрой'><i class='far fa-images'></i></div>"; // Вставка картинки с уменшением
-let imageFull = "<div id='imageFullId' type='button' class='stylebuttonico' title='Ссылка на изображение'><i class='fas fa-image'></i></div>"; // Вставка картинки
+let image = "<div id='imageId' type='button' class='stylebuttonico' title='Изображение в виде ссылки'><i class='far fa-images'></i></div>"; // Вставка картинки + открытие в новой вкладке
+let imageFull = "<div id='imageFullId' type='button' class='stylebuttonico' title='Изображение'><i class='fas fa-image'></i></div>"; // Вставка картинки
 let video = "<div id='videoId' type='button' class='stylebuttonico' title='Теги для вставки видео'><i class='fas fa-video'></i></div>"; // Вставка видео
 let audio = "<div id='audioId' type='button' class='stylebuttonico' title='Теги для вставки аудио'><i class='fas fa-music'></i></div>"; // Вставка аудио
 let red = "<div id='redId' type='button' class='stylebuttonico' title='Красный, предупредительный текст'><i class='fas fa-exclamation-triangle'></i></div>"; // Красный текст - ВНИМАНИЕ!
@@ -283,9 +283,9 @@ imageId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<a href="' + selectedText + '" target=\"_blank\"><img style=\"width: 40%; height=40%\" src="' + selectedText + '"></a>');
+            pastText(tegValue = '<a href="' + selectedText + '" target=\"_blank\"><img src="' + selectedText + '"></a>');
         } else {
-            insertAtCaret("<a href=\" ССЫЛКА НА КАРТИНКУ \" target=\"_blank\"><img style=\"width: 40%; height=40%\" src=\" ССЫЛКА НА КАРТИНКУ \"></a>");
+            insertAtCaret("<a href=\"ССЫЛКА НА КАРТИНКУ\" target=\"_blank\"><img src=\"ССЫЛКА НА КАРТИНКУ\"></a>");
         }
     }
 };
@@ -297,7 +297,7 @@ imageFullId.onclick = function () {
         if (selectedText) {
             pastText(tegValue = '<img src="' + selectedText + '">');
         } else {
-            insertAtCaret("<img src=\" ССЫЛКА НА КАРТИНКУ \">");
+            insertAtCaret("<img src=\"ССЫЛКА НА КАРТИНКУ\">");
         }
     }
 };
