@@ -7,8 +7,8 @@ let promptEdit = url.indexOf('PromptEdit');
 let taskEdit = url.indexOf('TaskEdit'); // Основное задание
 let bonusEdit = url.indexOf('BonusEdit'); // Бонусное задание
 
-let textareaNum;
-let elementNum;
+let textareaNum = 0;
+let elementNum = 0;
 
 if (penalty > 10) { // Устанавливаем доступ к Textarea для отдельных страниц
     textareaNum = '1'; // Выбираем текстовое поле
