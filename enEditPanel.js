@@ -1,6 +1,5 @@
 const version = 'v 6.5.24';
-$('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />');
-$('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />');
+$('head').append('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" />');
 
 let url = document.URL; // Получаем адрес страницы редактирования
 let penalty = url.indexOf('penalty'); // Страница со штрафными подсказками
@@ -85,7 +84,7 @@ let justify = "<div id='justifyId' type='button' class='stylebuttonico' title='�
 let detalis = "<div id='detalisId' type='button' class='stylebuttonico' title='Спойлер'><i class='fas fa-angle-double-down'></i></div>"; // Спойлер
 let quote = "<div id='quoteId' type='button' class='stylebuttonico' title='Цитирование с разделителями'><i class='fas fa-quote-left'></i></div>"; // Цитирование с разделителями
 
-let image = "<div id='imageId' type='button' class='stylebuttonico' title='Изображение в виде ссылки'><i class='fas fa-images'></i></div>"; // Вставка картинки + открытие в новой вкладке
+let image = "<div id='imageId' type='button' class='stylebuttonico' title='Изображение в виде ссылки'><i class='far fa-images'></i></div>"; // Вставка картинки + открытие в новой вкладке
 let imageFull = "<div id='imageFullId' type='button' class='stylebuttonico' title='Изображение'><i class='fas fa-image'></i></div>"; // Вставка картинки
 let video = "<div id='videoId' type='button' class='stylebuttonico' title='Теги для вставки видео'><i class='fas fa-video'></i></div>"; // Вставка видео
 let audio = "<div id='audioId' type='button' class='stylebuttonico' title='Теги для вставки аудио'><i class='fas fa-music'></i></div>"; // Вставка аудио
