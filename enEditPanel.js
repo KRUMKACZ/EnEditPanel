@@ -1,4 +1,4 @@
-const version = 'v 6.5.24';
+const version = 'v 18.5.24';
 $('head').append('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" />');
 
 let url = document.URL; // Получаем адрес страницы редактирования
