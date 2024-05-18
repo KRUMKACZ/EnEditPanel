@@ -485,6 +485,6 @@ qAquaId.onclick = function () {
 // Кнопки для квеста
 
 authorId.onclick = function () {
-    insertAtCaret(`EEP EnEditPanel ${version} - панель редактирования заданий игрового движка Encounter.
+    alert(`EEP EnEditPanel ${version} - панель редактирования заданий игрового движка Encounter.
 Предложения по улучшению и расширению функционала панели пишем @free_md`);
 };
