@@ -198,7 +198,7 @@ const author = {
 };
 
 // for each textarea attach toolbar
-$('div.divCenter > textarea.textarea_blank').each((_, textarea) => {
+$('div.enPnl1 > textarea.textarea_blank').each((_, textarea) => {
   const content = [...buttons, ...colorButtons, author].map((x) => {
     const button = document.createElement('div');
     button.type = 'button';
