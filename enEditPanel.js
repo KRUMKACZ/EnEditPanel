@@ -1,4 +1,4 @@
-const version = 'v 18.5.24';
+const version = 'v 20.5.24';
 $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />');
 $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />');
 
@@ -96,13 +96,16 @@ let fo = '<div id="foId" type="button" class="stylebutton" title="Форма о�
 let example = '<div id="exampleId" type="button" class="stylebutton" title="Пример ответа">Пример</div>'; // Пример ответа
 
 // Кнопки с цветными шрифтами, для квеста
+let qWhite = '<div id="qWhiteId" type="button" class="stylebutton" title="Лайм"><span style="color: #FFFFFF">#</span></div>';
 let qLime = '<div id="qLimeId" type="button" class="stylebutton" title="Лайм"><span style="color: #00FF00">#</span></div>';
+let qGreen = '<div id="qGreenId" type="button" class="stylebutton" title="Зеленый"><span style="color: #008000">#</span></div>';
 let qRed = '<div id="qRedId" type="button" class="stylebutton" title="Красный"><span style="color: #FF0000">#</span></div>';
+let qDeepPink = '<div id="qDeepPinkId" type="button" class="stylebutton" title="Пурпурно-розовый"><span style="color: #FF1493">#</span></div>';
 let qYellow = '<div id="qYellowId" type="button" class="stylebutton" title="Желтый"><span style="color: #FFFF00">#</span></div>';
 let qOrange = '<div id="qOrangeId" type="button" class="stylebutton" title="Оранжевый"><span style="color: #FFA500">#</span></div>';
 let qBlue = '<div id="qBlueId" type="button" class="stylebutton" title="Синий"><span style="color: #0000FF">#</span></div>';
 let qPurple = '<div id="qPurpleId" type="button" class="stylebutton" title="Пурпурный"><span style="color: #800080">#</span></div>';
-let qFuchsia = '<div id="qFuchsiaId" type="button" class="stylebutton" title="Розовый"><span style="color: #FF00FF">#</span></div>';
+let qFuchsia = '<div id="qFuchsiaId" type="button" class="stylebutton" title="Фуксия"><span style="color: #FF00FF">#</span></div>';
 let qAqua = '<div id="qAquaId" type="button" class="stylebutton" title="Аква"><span style="color: #00FFFF">#</span></div>';
 // Кнопки с цветными шрифтами, для квеста
 
@@ -114,7 +117,7 @@ let author = "<div id='authorId' type='button' class='stylebuttonico' title='Inf
 let element = document.getElementsByTagName('td')[elementNum];
 let buttonPanel = document.createElement('div');
 buttonPanel.id = 'buttonPanel';
-buttonPanel.innerHTML = br + bold + yellowI + del + urlButton + center + right + justify + detalis + quote + image + imageFull + video + audio + red + coordinates + fo + example + qLime + qRed + qYellow + qOrange + qBlue + qPurple + qFuchsia + qAqua + author;
+buttonPanel.innerHTML = br + bold + yellowI + del + urlButton + center + right + justify + detalis + quote + image + imageFull + video + audio + red + coordinates + fo + example + qWhite + qLime + qGreen + qRed + qYellow + qOrange + qBlue + qPurple + qFuchsia + qDeepPink + qAqua + author;
 element.appendChild(buttonPanel);
 
 $('div.stylebutton').css(
@@ -387,6 +390,19 @@ exampleId.onclick = function () {
 };
 
 // Кнопки для квеста
+
+qWhiteId.onclick = function () {
+    textSet();
+    if (text.selectionStart != undefined) {
+        positionCursor();
+        if (selectedText) {
+            pastText(tegValue = '<span style="color: #FFFFFF">' + selectedText + '</span>');
+        } else {
+            insertAtCaret('<span style="color: #FFFFFF">#</span>');
+        }
+    }
+};
+
 qLimeId.onclick = function () {
     textSet();
     if (text.selectionStart != undefined) {
@@ -395,6 +411,18 @@ qLimeId.onclick = function () {
             pastText(tegValue = '<span style="color: #00FF00">' + selectedText + '</span>');
         } else {
             insertAtCaret('<span style="color: #00FF00">#</span>');
+        }
+    }
+};
+
+qGreenId.onclick = function () {
+    textSet();
+    if (text.selectionStart != undefined) {
+        positionCursor();
+        if (selectedText) {
+            pastText(tegValue = '<span style="color: #008000">' + selectedText + '</span>');
+        } else {
+            insertAtCaret('<span style="color: #008000">#</span>');
         }
     }
 };
@@ -423,6 +451,18 @@ qYellowId.onclick = function () {
     }
 };
 
+qDeepPinkId.onclick = function () {
+    textSet();
+    if (text.selectionStart != undefined) {
+        positionCursor();
+        if (selectedText) { // Добавляем тег для выделеного текста
+            pastText(tegValue = '<span style="color: #FF1493">' + selectedText + '</span>');
+        } else { // Вставляем стандартный тег, если текст не выделен
+            insertAtCaret('<span style="color: #FF1493">#</span>');
+        }
+    }
+};
+
 qOrangeId.onclick = function () {
     textSet();
     if (text.selectionStart != undefined) {
@@ -446,6 +486,7 @@ qBlueId.onclick = function () {
         }
     }
 };
+
 
 qPurpleId.onclick = function () {
     textSet();
@@ -485,6 +526,9 @@ qAquaId.onclick = function () {
 // Кнопки для квеста
 
 authorId.onclick = function () {
-    alert(`EEP EnEditPanel ${version} - панель редактирования заданий игрового движка Encounter.
-Предложения по улучшению и расширению функционала панели пишем @free_md`);
+    alert(`EnEditPanel ${version} - панель редактирования заданий игрового движка Encounter.
+
+Предложения по улучшению и расширению функционала панели пишем: ТГ: @free_md 
+
+© 2019 Viruss / arena.en.cx`);
 };
