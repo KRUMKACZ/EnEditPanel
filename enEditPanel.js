@@ -1,5 +1,6 @@
-const version = 'v 4.3.2023';
-$('head').append('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" />');
+const version = 'v 20.5.24';
+$('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />');
+$('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA==" crossorigin="anonymous" referrerpolicy="no-referrer" />');
 
 let url = document.URL; // Получаем адрес страницы редактирования
 let penalty = url.indexOf('penalty'); // Страница со штрафными подсказками
@@ -7,8 +8,8 @@ let promptEdit = url.indexOf('PromptEdit');
 let taskEdit = url.indexOf('TaskEdit'); // Основное задание
 let bonusEdit = url.indexOf('BonusEdit'); // Бонусное задание
 
-let textareaNum;
-let elementNum;
+let textareaNum = 0;
+let elementNum = 0;
 
 if (penalty > 10) { // Устанавливаем доступ к Textarea для отдельных страниц
     textareaNum = '1'; // Выбираем текстовое поле
@@ -72,37 +73,40 @@ function insertAtCaret(text) {
 
 // Кнопки панели
 
-let br = "<div id='brId' type='button' class='stylebuttonico' title='Тег переноса строки'><i class='fas fa-level-down-alt'></i></div>"; // Перенос строки
-let bold = "<div id='boldId' type='button' class='stylebuttonico' title='Жирный текст'><i class='fas fa-bold'></i></div>"; // Жирный текст
-let yellowI = "<div id='yellowId' type='button' class='stylebuttonico' title='Желтый текст курсивом'><i class='fas fa-italic'></i></div>"; // Желтый наклонный текст
-let del = "<div id='delId' type='button' class='stylebuttonico' title='Зачеркнутый текст'><i class='fas fa-strikethrough'></i></div>"; // Зачеркнутый текст
-let urlButton = "<div id='urlId' type='button' class='stylebuttonico' title='Ссылка'><i class='fas fa-sign-out-alt'></i></div>"; // Ссылка
+let br = '<div id="brId" type="button" class="stylebuttonico" title="Тег переноса строки"><i class="fas fa-level-down-alt"></i></div>'; // Перенос строки
+let bold = '<div id="boldId" type="button" class="stylebuttonico" title="Жирный текст"><i class="fas fa-bold"></i></div>'; // Жирный текст
+let yellowI = '<div id="yellowId" type="button" class="stylebuttonico" title="Желтый текст курсивом"><i class="fas fa-italic"></i></div>'; // Желтый наклонный текст
+let del = '<div id="delId" type="button" class="stylebuttonico" title="Зачеркнутый текст"><i class="fas fa-strikethrough"></i></div>'; // Зачеркнутый текст
+let urlButton = '<div id="urlId" type="button" class="stylebuttonico" title="Ссылка"><i class="fas fa-sign-out-alt"></i></div>'; // Ссылка
 
-let center = "<div id='centerId' type='button' class='stylebuttonico' title='Выравнивание по центру'><i class='fas fa-align-center'></i></div>"; // Выравнивание по центру
-let right = "<div id='rightId' type='button' class='stylebuttonico' title='Выравнивание по правому краю'><i class='fas fa-align-right'></i></div>"; // Выравнивание по правому краю
-let justify = "<div id='justifyId' type='button' class='stylebuttonico' title='Выравнивание по ширине'><i class='fas fa-align-justify'></i></div>"; // Выравнивание по ширине
-let detalis = "<div id='detalisId' type='button' class='stylebuttonico' title='Спойлер'><i class='fas fa-angle-double-down'></i></div>"; // Спойлер
-let quote = "<div id='quoteId' type='button' class='stylebuttonico' title='Цитирование с разделителями'><i class='fas fa-quote-left'></i></div>"; // Цитирование с разделителями
+let center = '<div id="centerId" type="button" class="stylebuttonico" title="Выравнивание по центру"><i class="fas fa-align-center"></i></div>'; // Выравнивание по центру
+let right = '<div id="rightId" type="button" class="stylebuttonico" title="Выравнивание по правому краю"><i class="fas fa-align-right"></i></div>'; // Выравнивание по правому краю
+let justify = '<div id="justifyId" type="button" class="stylebuttonico" title="Выравнивание по ширине"><i class="fas fa-align-justify"></i></div>'; // Выравнивание по ширине
+let detalis = '<div id="detalisId" type="button" class="stylebuttonico" title="Спойлер"><i class="fas fa-angle-double-down"></i></div>'; // Спойлер
+let quote = '<div id="quoteId" type="button" class="stylebuttonico" title="Цитирование с разделителями"><i class="fas fa-quote-left"></i></div>'; // Цитирование с разделителями
 
-let image = "<div id='imageId' type='button' class='stylebuttonico' title='Ссылка на изображение с миниатюрой'><i class='far fa-images'></i></div>"; // Вставка картинки с уменшением
-let imageFull = "<div id='imageFullId' type='button' class='stylebuttonico' title='Ссылка на изображение'><i class='fas fa-image'></i></div>"; // Вставка картинки
-let video = "<div id='videoId' type='button' class='stylebuttonico' title='Теги для вставки видео'><i class='fas fa-video'></i></div>"; // Вставка видео
-let audio = "<div id='audioId' type='button' class='stylebuttonico' title='Теги для вставки аудио'><i class='fas fa-music'></i></div>"; // Вставка аудио
-let red = "<div id='redId' type='button' class='stylebuttonico' title='Красный, предупредительный текст'><i class='fas fa-exclamation-triangle'></i></div>"; // Красный текст - ВНИМАНИЕ!
-let coordinates = "<div id='coordinatesId' type='button' class='stylebuttonico' title='Координаты'><i class='fas fa-map-marker-alt'></i></div>"; // Скрипт координат
+let image = '<div id="imageId" type="button" class="stylebuttonico" title="Изображение в виде ссылки"><i class="fas fa-images"></i></div>'; // Вставка картинки + открытие в новой вкладке
+let imageFull = '<div id="imageFullId" type="button" class="stylebuttonico" title="Изображение"><i class="fas fa-image"></i></div>'; // Вставка картинки
+let video = '<div id="videoId" type="button" class="stylebuttonico" title="Теги для вставки видео"><i class="fas fa-video"></i></div>'; // Вставка видео
+let audio = '<div id="audioId" type="button" class="stylebuttonico" title="Теги для вставки аудио"><i class="fas fa-music"></i></div>'; // Вставка аудио
+let red = '<div id="redId" type="button" class="stylebuttonico" title="Красный, предупредительный текст"><i class="fas fa-exclamation-triangle"></i></div>'; // Красный текст - ВНИМАНИЕ!
+let coordinates = '<div id="coordinatesId" type="button" class="stylebuttonico" title="Координаты"><i class="fas fa-map-marker-alt"></i></div>'; // Скрипт координат
 
-let fo = "<div id='foId' type='button' class='stylebutton' title='Форма ответа'>ФО</div>"; // Форма Ответа
-let example = "<div id='exampleId' type='button' class='stylebutton' title='Пример ответа'>Пример</div>"; // Пример ответа
+let fo = '<div id="foId" type="button" class="stylebutton" title="Форма ответа">ФО</div>'; // Форма Ответа
+let example = '<div id="exampleId" type="button" class="stylebutton" title="Пример ответа">Пример</div>'; // Пример ответа
 
 // Кнопки с цветными шрифтами, для квеста
-let qLime = "<div id='qLimeId' type='button' class='stylebutton' title='Лайм'><span style='color: #00FF00'>#</span></div>";
-let qRed = "<div id='qRedId' type='button' class='stylebutton' title='Красный'><span style='color: #FF0000'>#</span></div>";
-let qYellow = "<div id='qYellowId' type='button' class='stylebutton' title='Желтый'><span style='color: #FFFF00'>#</span></div>";
-let qOrange = "<div id='qOrangeId' type='button' class='stylebutton' title='Оранжевый'><span style='color: #FFA500'>#</span></div>";
-let qBlue = "<div id='qBlueId' type='button' class='stylebutton' title='Синий'><span style='color: #0000FF'>#</span></div>";
-let qPurple = "<div id='qPurpleId' type='button' class='stylebutton' title='Пурпурный'><span style='color: #800080'>#</span></div>";
-let qFuchsia = "<div id='qFuchsiaId' type='button' class='stylebutton' title='Розовый'><span style='color: #FF00FF'>#</span></div>";
-let qAqua = "<div id='qAquaId' type='button' class='stylebutton' title='Аква'><span style='color: #00FFFF'>#</span></div>";
+let qWhite = '<div id="qWhiteId" type="button" class="stylebutton" title="Лайм"><span style="color: #FFFFFF">#</span></div>';
+let qLime = '<div id="qLimeId" type="button" class="stylebutton" title="Лайм"><span style="color: #00FF00">#</span></div>';
+let qGreen = '<div id="qGreenId" type="button" class="stylebutton" title="Зеленый"><span style="color: #008000">#</span></div>';
+let qRed = '<div id="qRedId" type="button" class="stylebutton" title="Красный"><span style="color: #FF0000">#</span></div>';
+let qDeepPink = '<div id="qDeepPinkId" type="button" class="stylebutton" title="Пурпурно-розовый"><span style="color: #FF1493">#</span></div>';
+let qYellow = '<div id="qYellowId" type="button" class="stylebutton" title="Желтый"><span style="color: #FFFF00">#</span></div>';
+let qOrange = '<div id="qOrangeId" type="button" class="stylebutton" title="Оранжевый"><span style="color: #FFA500">#</span></div>';
+let qBlue = '<div id="qBlueId" type="button" class="stylebutton" title="Синий"><span style="color: #0000FF">#</span></div>';
+let qPurple = '<div id="qPurpleId" type="button" class="stylebutton" title="Пурпурный"><span style="color: #800080">#</span></div>';
+let qFuchsia = '<div id="qFuchsiaId" type="button" class="stylebutton" title="Фуксия"><span style="color: #FF00FF">#</span></div>';
+let qAqua = '<div id="qAquaId" type="button" class="stylebutton" title="Аква"><span style="color: #00FFFF">#</span></div>';
 // Кнопки с цветными шрифтами, для квеста
 
 let author = "<div id='authorId' type='button' class='stylebuttonico' title='Info'><i class='fas fa-info'></i></div>";
@@ -113,7 +117,7 @@ let author = "<div id='authorId' type='button' class='stylebuttonico' title='Inf
 let element = document.getElementsByTagName('td')[elementNum];
 let buttonPanel = document.createElement('div');
 buttonPanel.id = 'buttonPanel';
-buttonPanel.innerHTML = br + bold + yellowI + del + urlButton + center + right + justify + detalis + quote + image + imageFull + video + audio + red + coordinates + fo + example + qLime + qRed + qYellow + qOrange + qBlue + qPurple + qFuchsia + qAqua + author;
+buttonPanel.innerHTML = br + bold + yellowI + del + urlButton + center + right + justify + detalis + quote + image + imageFull + video + audio + red + coordinates + fo + example + qWhite + qLime + qGreen + qRed + qYellow + qOrange + qBlue + qPurple + qFuchsia + qDeepPink + qAqua + author;
 element.appendChild(buttonPanel);
 
 $('div.stylebutton').css(
@@ -186,9 +190,9 @@ yellowId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<i style=color: yellow;>' + selectedText + '</i>');
+            pastText(tegValue = '<i style="color: yellow;">' + selectedText + '</i>');
         } else {
-            insertAtCaret("<i style=color: yellow;> ТЕКСТ </i>");
+            insertAtCaret('<i style="color: yellow;"> ТЕКСТ </i>');
         }
     }
 };
@@ -212,7 +216,7 @@ urlId.onclick = function () {
         if (selectedText) {
             pastText(tegValue = '<a href="' + selectedText + '"> ТЕКСТ </a>');
         } else {
-            insertAtCaret("<a href=\"ССЫЛКА\"> ТЕКСТ </a>");
+            insertAtCaret('<a href="ССЫЛКА"> ТЕКСТ </a>');
         }
     }
 };
@@ -222,9 +226,9 @@ centerId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<p style=\"color:yellow; text-align: center;\">' + selectedText + '</p>');
+            pastText(tegValue = '<p style="color:yellow; text-align: center;">' + selectedText + '</p>');
         } else {
-            insertAtCaret("<p style=\"color:yellow; text-align: center;\"> ТЕКСТ </p>");
+            insertAtCaret('<p style="color:yellow; text-align: center;"> ТЕКСТ </p>');
         }
     }
 };
@@ -234,9 +238,9 @@ rightId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<p style=\"color:yellow; text-align: right;\">' + selectedText + '</p>');
+            pastText(tegValue = '<p style="color:yellow; text-align: right;">' + selectedText + '</p>');
         } else {
-            insertAtCaret("<p style=\"color:yellow; text-align: right;\"> ТЕКСТ </p>");
+            insertAtCaret('<p style="color:yellow; text-align: right;"> ТЕКСТ </p>');
         }
     }
 };
@@ -246,9 +250,9 @@ justifyId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<p style=\"color:yellow; text-align: justify;\">' + selectedText + '</p>');
+            pastText(tegValue = '<p style="color:yellow; text-align: justify;">' + selectedText + '</p>');
         } else {
-            insertAtCaret("<p style=\"color:yellow; text-align: justify;\"> ТЕКСТ </p>");
+            insertAtCaret('<p style="color:yellow; text-align: justify;"> ТЕКСТ </p>');
         }
     }
 };
@@ -283,9 +287,9 @@ imageId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<a href="' + selectedText + '" target=\"_blank\"><img style=\"width: 40%; height=40%\" src="' + selectedText + '"></a>');
+            pastText(tegValue = '<a href="' + selectedText + '" target="_blank"><img src="' + selectedText + '"></a>');
         } else {
-            insertAtCaret("<a href=\" ССЫЛКА НА КАРТИНКУ \" target=\"_blank\"><img style=\"width: 40%; height=40%\" src=\" ССЫЛКА НА КАРТИНКУ \"></a>");
+            insertAtCaret('<a href="ССЫЛКА НА КАРТИНКУ" target="_blank"><img src="ССЫЛКА НА КАРТИНКУ"></a>');
         }
     }
 };
@@ -297,7 +301,7 @@ imageFullId.onclick = function () {
         if (selectedText) {
             pastText(tegValue = '<img src="' + selectedText + '">');
         } else {
-            insertAtCaret("<img src=\" ССЫЛКА НА КАРТИНКУ \">");
+            insertAtCaret('<img src="ССЫЛКА НА КАРТИНКУ">');
         }
     }
 };
@@ -307,9 +311,9 @@ redId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<p style=color:red;><b>ВНИМАНИЕ!</b> ' + selectedText + '</p>');
+            pastText(tegValue = '<p style="color:red;"><b>ВНИМАНИЕ!</b> ' + selectedText + '</p>');
         } else {
-            insertAtCaret("<p style=color:red;><b>ВНИМАНИЕ!</b> ТЕКСТ </p>");
+            insertAtCaret('<p style="color:red;"><b>ВНИМАНИЕ!</b> ТЕКСТ </p>');
         }
     }
 };
@@ -325,10 +329,10 @@ videoId.onclick = function () {
             
             <p>Если видео не воспроизводится, скачайте его по ссылке: <a href="` + selectedText + `">Download</a> (РАЗМЕР Mb)</p> </video></p>`);
         } else {
-            insertAtCaret(`<p style='text-align: justify'><span style='color: #FF9933'><b>Название</b></span>
-<video width='640' height='360' src=\"ССЫЛКА НА ВИДЕО.webm\" controls autobuffer>
+            insertAtCaret(`<p style="text-align: justify"><span style="color: #FF9933"><b>Название</b></span>
+<video width="640" height="360" src="ССЫЛКА НА ВИДЕО.webm" controls autobuffer>
 
-<p>Если видео не воспроизводится, скачайте его по ссылке: <a href=\"ССЫЛКА НА ВИДЕО.webm\">Download</a> (РАЗМЕР Mb)</p> </video></p>`);
+<p>Если видео не воспроизводится, скачайте его по ссылке: <a href="ССЫЛКА НА ВИДЕО.webm">Download</a> (РАЗМЕР Mb)</p> </video></p>`);
         }
     }
 };
@@ -366,9 +370,9 @@ foId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<span style=color: yellow;><b>ФО:</b> ' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: yellow;"><b>ФО:</b> ' + selectedText + '</span>');
         } else {
-            insertAtCaret('<span style=color:yellow;><b>ФО:</b> ТЕКСТ </span>');
+            insertAtCaret('<span style="color: yellow;"><b>ФО:</b> ТЕКСТ </span>');
         }
     }
 };
@@ -378,22 +382,47 @@ exampleId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<span style=color:yellow;><b>Пример:</b> ' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: yellow;"><b>Пример:</b> ' + selectedText + '</span>');
         } else {
-            insertAtCaret('<span style=color:yellow;><b>Пример:</b> ТЕКСТ </span>');
+            insertAtCaret('<span style="color: yellow;"><b>Пример:</b> ТЕКСТ </span>');
         }
     }
 };
 
 // Кнопки для квеста
+
+qWhiteId.onclick = function () {
+    textSet();
+    if (text.selectionStart != undefined) {
+        positionCursor();
+        if (selectedText) {
+            pastText(tegValue = '<span style="color: #FFFFFF">' + selectedText + '</span>');
+        } else {
+            insertAtCaret('<span style="color: #FFFFFF">#</span>');
+        }
+    }
+};
+
 qLimeId.onclick = function () {
     textSet();
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<span style=\'color: #00FF00\'>' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: #00FF00">' + selectedText + '</span>');
         } else {
-            insertAtCaret("<span style='color: #00FF00'>#</span>");
+            insertAtCaret('<span style="color: #00FF00">#</span>');
+        }
+    }
+};
+
+qGreenId.onclick = function () {
+    textSet();
+    if (text.selectionStart != undefined) {
+        positionCursor();
+        if (selectedText) {
+            pastText(tegValue = '<span style="color: #008000">' + selectedText + '</span>');
+        } else {
+            insertAtCaret('<span style="color: #008000">#</span>');
         }
     }
 };
@@ -403,9 +432,9 @@ qRedId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<span style=\'color: #FF0000\'>' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: #FF0000">' + selectedText + '</span>');
         } else {
-            insertAtCaret("<span style='color: #FF0000'>#</span>");
+            insertAtCaret('<span style="color: #FF0000">#</span>');
         }
     }
 };
@@ -415,9 +444,21 @@ qYellowId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) {
-            pastText(tegValue = '<span style=\'color: #FFFF00\'>' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: #FFFF00">' + selectedText + '</span>');
         } else {
-            insertAtCaret("<span style='color: #FFFF00'>#</span>");
+            insertAtCaret('<span style="color: #FFFF00">#</span>');
+        }
+    }
+};
+
+qDeepPinkId.onclick = function () {
+    textSet();
+    if (text.selectionStart != undefined) {
+        positionCursor();
+        if (selectedText) { // Добавляем тег для выделеного текста
+            pastText(tegValue = '<span style="color: #FF1493">' + selectedText + '</span>');
+        } else { // Вставляем стандартный тег, если текст не выделен
+            insertAtCaret('<span style="color: #FF1493">#</span>');
         }
     }
 };
@@ -427,9 +468,9 @@ qOrangeId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) { // Добавляем тег для выделеного текста
-            pastText(tegValue = '<span style=\'color: #FFA500\'>' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: #FFA500">' + selectedText + '</span>');
         } else { // Вставляем стандартный тег, если текст не выделен
-            insertAtCaret("<span style='color: #FFA500'>#</span>");
+            insertAtCaret('<span style="color: #FFA500">#</span>');
         }
     }
 };
@@ -439,21 +480,22 @@ qBlueId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) { // Добавляем тег для выделеного текста
-            pastText(tegValue = '<span style=\'color: #0000FF\'>' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: #0000FF">' + selectedText + '</span>');
         } else { // Вставляем стандартный тег, если текст не выделен
-            insertAtCaret("<span style='color: #0000FF'>#</span>");
+            insertAtCaret('<span style="color: #0000FF">#</span>');
         }
     }
 };
+
 
 qPurpleId.onclick = function () {
     textSet();
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) { // Добавляем тег для выделеного текста
-            pastText(tegValue = '<span style=\'color: #800080\'>' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: #800080">' + selectedText + '</span>');
         } else { // Вставляем стандартный тег, если текст не выделен
-            insertAtCaret("<span style='color: #800080'>#</span>");
+            insertAtCaret('<span style="color: #800080">#</span>');
         }
     }
 };
@@ -463,9 +505,9 @@ qFuchsiaId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) { // Добавляем тег для выделеного текста
-            pastText(tegValue = '<span style=\'color: #FF00FF\'>' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: #FF00FF">' + selectedText + '</span>');
         } else { // Вставляем стандартный тег, если текст не выделен
-            insertAtCaret("<span style='color: #FF00FF'>#</span>");
+            insertAtCaret('<span style="color: #FF00FF">#</span>');
         }
     }
 };
@@ -475,15 +517,18 @@ qAquaId.onclick = function () {
     if (text.selectionStart != undefined) {
         positionCursor();
         if (selectedText) { // Добавляем тег для выделеного текста
-            pastText(tegValue = '<span style=\'color: #00FFFF\'>' + selectedText + '</span>');
+            pastText(tegValue = '<span style="color: #00FFFF">' + selectedText + '</span>');
         } else { // Вставляем стандартный тег, если текст не выделен
-            insertAtCaret("<span style='color: #00FFFF'>#</span>");
+            insertAtCaret('<span style="color: #00FFFF">#</span>');
         }
     }
 };
 // Кнопки для квеста
 
 authorId.onclick = function () {
-    insertAtCaret(`EEP EnEditPanel ${version} - панель редактирования заданий игрового движка Encounter.
-Предложения по улучшению и расширению функционала панели пишем @Chapunka`);
+    alert(`EnEditPanel ${version} - панель редактирования заданий игрового движка Encounter.
+
+Предложения по улучшению и расширению функционала панели пишем: ТГ: @free_md 
+
+© 2019 Viruss / arena.en.cx`);
 };
