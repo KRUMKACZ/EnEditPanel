@@ -221,6 +221,16 @@ $('div.enPnl1 > textarea.textarea_blank').each((_, textarea) => {
   const toolbar = document.createElement('div');
   toolbar.class = 'buttonPanel';
   content.forEach((b) => toolbar.appendChild(b));
-  // put into sibling 'div'
-  textarea.parentNode.parentNode.prepend(toolbar);
+  // paste before parent 'div' of textarea
+  /**
+  <td width="100%" valign="top">
+    Описание подсказки участнику:
+    ---> here <---
+    <div class="enPnl1 border_rad3" style="width:100%;">
+      <textarea name="txtPenaltyComment" class="textarea_blank" style="width:100%;height:33px;">1</textarea>
+    </div>
+  </td>
+   */
+  const parent = textarea.parentNode.parentNode;
+  parent.insertBefore(toolbar, textarea.parentNode);
 });
