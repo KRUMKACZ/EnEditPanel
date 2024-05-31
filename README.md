@@ -3,6 +3,8 @@
 
 ### С 05/05/2024 скрипт нативно подключен к сети Encounter
 
-Version:    20.5.24     
-Author:     VIRUSS      
-Telegram:   @free_md        
+Version:        21.5.24          
+Author:         VIRUSS       
+Refactoring:    OldBuddy          
+
+Telegram:       @free_md            
