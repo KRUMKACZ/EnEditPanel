@@ -31,6 +31,11 @@ div.stylebuttonico {
     font-size: 18px;
     line-height: 27px;
 }
+
+i.style-colors-ico { 
+    padding-top: 6px;
+    font-size: 16px;
+}
 </style>`
 );
 
@@ -39,7 +44,7 @@ div.stylebuttonico {
  * @param {string} value
  * @returns {string}
  */
-function selectionReplacer(value) {}
+function selectionReplacer(value) { }
 
 /**
  * Replace selected text (or paste text at cursor) in `txtarea`
@@ -121,6 +126,11 @@ buttons.push({
   template: '<hr><blockquote> $selection </blockquote><hr>',
 });
 buttons.push({
+  title: 'Изображение c ограничением размера в %',
+  icon: 'fa-minimize',
+  template: '<a href="$selection" target="_blank"><img src="$selection" width="50%" height="50%"></a>',
+});
+buttons.push({
   title: 'Изображение в виде ссылки',
   icon: 'fa-images',
   template: '<a href="$selection" target="_blank"><img src="$selection"></a>',
@@ -158,12 +168,12 @@ buttons.push({
 });
 buttons.push({
   title: 'Форма ответа',
-  content: 'ФО',
+  content: '<b>ФО:</b>',
   template: '<span style="color: yellow;"><b>ФО:</b> $selection </span>',
 });
 buttons.push({
   title: 'Пример ответа',
-  content: 'Пример',
+  content: '<b>Пример:</b>',
   template: '<span style="color: yellow;"><b>Пример:</b> $selection </span>',
 });
 
@@ -182,7 +192,7 @@ const colors = [
 ];
 const colorButtons = colors.map((x) => ({
   title: x[1],
-  content: `<span style="color: ${x[0]}">#</span>`,
+  content: `<span style="color: ${x[0]}"><i class="fas fa-fill-drip style-colors-ico"></i></span>`,
   template: `<span style="color: ${x[0]}">$selection</span>`,
 }));
 
@@ -194,7 +204,7 @@ const author = {
 
 Предложения по улучшению и расширению функционала панели пишем: ТГ: @free_md
 
-© 2019 Viruss / arena.en.cx`),
+© 2019 Viruss // Refactoring - OldBuddy // arena.en.cx`),
 };
 
 // for each textarea attach toolbar
@@ -204,17 +214,18 @@ $('div.enPnl1 > textarea.textarea_blank').each((_, textarea) => {
     button.type = 'button';
     button.title = x.title;
     button.className = x.content ? 'stylebutton' : 'stylebuttonico';
+
     const content = x.content ?? `<i class="fas ${x.icon}"></i>`;
     button.innerHTML = content;
     button.onclick = x.onclick
       ? () => x.onclick(textarea)
       : () =>
-          replaceText(textarea, (selection) =>
-            x.template.replaceAll(
-              '$selection',
-              selection || (x.emptyPlaceholder ?? 'ТЕКСТ')
-            )
-          );
+        replaceText(textarea, (selection) =>
+          x.template.replaceAll(
+            '$selection',
+            selection || (x.emptyPlaceholder ?? 'ТЕКСТ // ССЫЛКА')
+          )
+        );
     return button;
   });
 
