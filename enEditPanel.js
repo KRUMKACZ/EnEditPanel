@@ -79,7 +79,7 @@ buttons.push({
     ),
 });
 buttons.push({
-  title: 'Жирный текст',
+  title: 'Жирное выделение текста',
   icon: 'fa-bold',
   template: '<b>$selection</b>',
 });
@@ -88,16 +88,25 @@ buttons.push({
   icon: 'fa-italic',
   template: '<i style="color: yellow;">$selection</i>',
 });
-
+buttons.push({
+  title: 'Нижнее подчеркивание',
+  icon: 'fa-underline',
+  template: '<u>$selection</u>',
+});
 buttons.push({
   title: 'Зачеркнутый текст',
   icon: 'fa-strikethrough',
   template: '<del>$selection</del>',
 });
 buttons.push({
-  title: 'Ссылка',
+  title: 'Простая ссылка',
   icon: 'fa-sign-out-alt',
   template: '<a href="$selection">ТЕКСТ</a>',
+});
+buttons.push({
+  title: 'Ссылка на новое окно',
+  icon: 'fa-window-restore',
+  template: '<a href="$selection" target="_blank">ТЕКСТ</a>',
 });
 buttons.push({
   title: 'Выравнивание по центру',
@@ -139,6 +148,12 @@ buttons.push({
   title: 'Изображение',
   icon: 'fa-image',
   template: '<img src="$selection">',
+});
+buttons.push({
+  title: 'Карта изображений (внешний ресурс)',
+  icon: 'fa-map-location-dot',
+  onclick: () =>
+    window.open('https://www.image-map.net', '_blank'),
 });
 buttons.push({
   title: 'Теги для вставки видео',
