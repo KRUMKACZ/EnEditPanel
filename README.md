@@ -3,7 +3,7 @@
 
 ### С 05/05/2024 скрипт нативно подключен к сети Encounter
 
-Version:        21.5.24          
+Version:        01.6.24          
 Author:         VIRUSS       
 Refactoring:    OldBuddy          
 
