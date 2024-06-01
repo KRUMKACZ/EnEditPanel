@@ -100,12 +100,12 @@ buttons.push({
 });
 buttons.push({
   title: 'Простая ссылка',
-  icon: 'fa-sign-out-alt',
+  icon: 'fa-link',
   template: '<a href="$selection">ТЕКСТ</a>',
 });
 buttons.push({
   title: 'Ссылка на новое окно',
-  icon: 'fa-window-restore',
+  icon: 'fa-arrow-up-right-from-square',
   template: '<a href="$selection" target="_blank">ТЕКСТ</a>',
 });
 buttons.push({
