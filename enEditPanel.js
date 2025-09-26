@@ -179,7 +179,7 @@ buttons.push({
 buttons.push({
   title: 'Координаты',
   icon: 'fa-map-marker-alt',
-  template: '<a href="geo:$selection;">$selection</a>',
+  template: '<a href="geo:$selection?q=$selection">$selection</a>',
 });
 buttons.push({
   title: 'Форма ответа',
